@@ -7,6 +7,7 @@ There is no existing API available to retrieve information about a student loan,
 in order to check the current interest rate and balance a user must manually log in which is time consuming.
 
 <h2>Usage</h2>
+To get the overview account information:
 
 ```python
 from uk-student-finance-api.student_loan_client import StudentLoanClient
@@ -27,6 +28,7 @@ added in the year.
 <h2>Authentication</h2>
 The service operates on a two-phase login process, step one requests your username
 and password, then step two requests your secret question answer.
+
 
 The only sort of authentication required is the CSRF token that is obtained
 when the user first accesses the login page.
