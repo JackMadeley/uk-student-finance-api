@@ -1,7 +1,5 @@
 from requests import Session
-from requests.cookies import RequestsCookieJar
 import logging
-import certifi
 from bs4 import BeautifulSoup as bs
 
 
@@ -12,7 +10,14 @@ class StudentLoanClient:
         self.overview_page = "https://www.manage-student-loan-balance.service.gov.uk/ors/account-overview/secured/summary"
         self.session = Session()
 
-    def login(self, username: str, password: str, secret_answer: str):
+    def login(self, username: str, password: str, secret_answer: str) -> None:
+        """
+        A function to login to the service's page and obtain a valid session
+        :param username: Login email address
+        :param password: Login password
+        :param secret_answer: Answer to secret question
+        :return: None
+        """
         with self.session as s:
             login_get_request = s.get(url=self.login_page)
             if login_get_request.status_code == 200:
@@ -61,6 +66,11 @@ class StudentLoanClient:
                 logging.critical(f"Unable to load login url {self.login_page}. Status code {login_get_request.status_code}")
 
     def get_summary(self) -> dict:
+        """
+        A function to get account overview information such as account balance, current interest rate, current year,
+        salary repayments, direct repayments and interest added.
+        :return: A dict object with the account summary
+        """
         output = {}
         with self.session as s:
             overview_page = s.post(url=self.overview_page, cookies=s.cookies)
