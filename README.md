@@ -29,7 +29,7 @@ The service operates on a two-phase login process, step one requests your userna
 and password, then step two requests your secret question answer.
 
 The only sort of authentication required is the CSRF token that is obtained
-when the user first accesses the login page 
+when the user first accesses the login page.
 
 This token does not change between step one and step two, and must be
 provided to both POST requests.
