@@ -28,13 +28,11 @@ added in the year.
 <h2>Authentication</h2>
 The service operates on a two-phase login process, step one requests your username
 and password, then step two requests your secret question answer.
-
-
+\n
 The only sort of authentication required is the CSRF token that is obtained
 when the user first accesses the login page.
-
-This token does not change between step one and step two, and must be
-provided to both POST requests.
+\n
+This token does not change between step one and step two, and must be provided to both POST requests.
 
 <h2>Contributing</h2>
 Pull requests are welcomed. Currently, the client only retrieves the account overview
